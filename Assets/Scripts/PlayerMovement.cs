@@ -7,18 +7,28 @@ public class PlayerMovement : MonoBehaviour {
     public float forwardForce = 2000f;               //Reglerar hur fort man springer    
     public float sidewaysForce = 100f;               // Reglerar hur snabbt man svänger  
 
+    public float jumpHeight = 50f;
+    //public float jumpLenght = 100f;
+
     private Vector3 forwardMovement;            
     private Vector3 sidewayMovement;
+    private Vector3 jumpingMovement;
 
 
 
     void Start () {
 
-        forwardMovement.z = forwardForce;
         sidewayMovement.x = sidewaysForce;
+       
+        jumpingMovement.y = jumpHeight;
+
+        //jumpingMovement.z = jumpLenght;
+        forwardMovement.z = forwardForce;
+
+        
     }
 
-    //Tydligen bättre för fysikmotorn än Update() 
+    
     void FixedUpdate() {
 
         player.AddForce(forwardMovement * Time.deltaTime);              //Flyttar spelaren framåt
@@ -36,7 +46,10 @@ public class PlayerMovement : MonoBehaviour {
     }
     
     void Update () {
-        
-       
-	}
+
+        if (Input.GetKey("up") || Input.GetKey("w"))
+        {
+            player.AddForce(jumpingMovement * Time.deltaTime, ForceMode.VelocityChange);
+        }
+    }
 }

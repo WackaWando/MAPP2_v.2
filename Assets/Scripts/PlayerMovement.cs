@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour {
     public float jumpHeight = 50f;
     //public float jumpLenght = 100f;
 
+    private bool isFalling = false;
+
     private Vector3 forwardMovement;            
     private Vector3 sidewayMovement;
     private Vector3 jumpingMovement;
@@ -44,12 +46,20 @@ public class PlayerMovement : MonoBehaviour {
             player.AddForce(-sidewayMovement * Time.deltaTime, ForceMode.VelocityChange);
         }
     }
-    
+
+    void OnCollisionStay()               //Kollar om man är i kontakt med marken
+    {
+        isFalling = false;
+    }
+
     void Update () {
 
-        if (Input.GetKey("up") || Input.GetKey("w"))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) && isFalling == false)
         {
             player.AddForce(jumpingMovement * Time.deltaTime, ForceMode.VelocityChange);
+            
         }
+        isFalling = true;
+
     }
 }

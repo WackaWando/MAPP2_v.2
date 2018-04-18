@@ -3,63 +3,101 @@
 public class PlayerMovement : MonoBehaviour {
 
 
-    public Rigidbody player;
+    
+
     public float forwardForce = 2000f;               //Reglerar hur fort man springer    
     public float sidewaysForce = 100f;               // Reglerar hur snabbt man svänger  
+    public float jumpHeight = 1000f;                   //Reglerar hur högt man hoppar
+    public float rampSpeed = 1500f;                     //Reglerar hur långt man flyger efter man åkt på en ramp
+    public PlayerMovement movement;
 
-    public float jumpHeight = 50f;
-    //public float jumpLenght = 100f;
 
-    private bool isFalling = false;
-
+    
+    private bool isGrounded;
+    private Rigidbody player;
     private Vector3 forwardMovement;            
     private Vector3 sidewayMovement;
     private Vector3 jumpingMovement;
+    private Vector3 rampMovement;
+    
 
 
 
-    void Start () {
-
+    void Start ()
+    {    
+        player = GetComponent<Rigidbody>();
         sidewayMovement.x = sidewaysForce;
-       
         jumpingMovement.y = jumpHeight;
-
-        //jumpingMovement.z = jumpLenght;
         forwardMovement.z = forwardForce;
+        rampMovement.z = forwardForce;
+        rampMovement.y = rampSpeed;
+    }
+
+    
+    void FixedUpdate()
+    {
 
         
     }
 
-    
-    void FixedUpdate() {
-
-        player.AddForce(forwardMovement * Time.deltaTime);              //Flyttar spelaren framåt
-
-        //Flyttar spelare höger och vänster (behöver ändras till swipemovement)
-        if (Input.GetKey("right") || Input.GetKey("d"))
+    private void OnCollisionExit(Collision collision)           //Kollar om man inte längre är i kontakt med något
+    {
+        if (collision.collider.tag == "Ground")
         {
-            player.AddForce(sidewayMovement * Time.deltaTime, ForceMode.VelocityChange);         
+            Debug.Log("not in contact with ground");
+            isGrounded = false;
+        }
+    }
+
+    void OnCollisionEnter(Collision collisionInfo)               //Kollar om man är i kontakt med något
+    {   
+
+        if (collisionInfo.collider.tag == "Ground")
+        {
+            Debug.Log("in contact with ground");
+            isGrounded = true;
+        }
+        
+        if (collisionInfo.collider.tag == "Ramp")
+        {
+            isGrounded = false;
+            player.AddForce(rampMovement * Time.deltaTime, ForceMode.VelocityChange);
+            
         }
 
-        if (Input.GetKey("left") || Input.GetKey("a"))
+        if (collisionInfo.collider.tag == "Obstacle")
+        {
+            movement.enabled = false;
+            player.constraints = RigidbodyConstraints.None;
+            
+
+        }
+    }
+
+    void Update () {        
+       
+        player.AddForce(forwardMovement * Time.deltaTime);              //Flyttar spelaren framåt
+
+        //Höger (behöver ändras till swipemovement)
+        if (Input.GetKey("d"))
+        {   
+            player.AddForce(sidewayMovement * Time.deltaTime, ForceMode.VelocityChange);
+        }
+        //Vänster
+        if (Input.GetKey("a"))
         {
             player.AddForce(-sidewayMovement * Time.deltaTime, ForceMode.VelocityChange);
         }
-    }
-
-    void OnCollisionStay()               //Kollar om man är i kontakt med marken
-    {
-        isFalling = false;
-    }
-
-    void Update () {
-
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) && isFalling == false)
+        //Hoppa
+        if (isGrounded == true && Input.GetKeyDown(KeyCode.W))
         {
-            player.AddForce(jumpingMovement * Time.deltaTime, ForceMode.VelocityChange);
-            
+            player.AddForce(jumpingMovement * Time.deltaTime, ForceMode.Impulse);
+            isGrounded = false;
         }
-        isFalling = true;
-
+        //Falla snabbt
+        if (isGrounded == false && Input.GetKeyDown(KeyCode.S))
+        {
+            player.AddForce(-jumpingMovement * Time.deltaTime, ForceMode.Impulse);
+        }
     }
 }

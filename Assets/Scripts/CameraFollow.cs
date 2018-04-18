@@ -17,7 +17,7 @@ public class CameraFollow : MonoBehaviour {
     private void FixedUpdate()
     {
         playerPositionZ = player.position.z;
-        if (playerPositionZ > 850)
+        if (playerPositionZ > 849)
         {
             passedFinishLine = true;
         }

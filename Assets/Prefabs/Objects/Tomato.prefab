@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 95390479081121646}
   - component: {fileID: 65561964019568568}
   - component: {fileID: 114128937476069190}
+  - component: {fileID: 114957152068645840}
   m_Layer: 0
   m_Name: Tomato (1)
   m_TagString: Untagged
@@ -177,7 +178,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1656819017027834}
   m_LocalRotation: {x: -0, y: -0.19047257, z: -0, w: 0.98169255}
-  m_LocalPosition: {x: -3.15, y: 1.21, z: 16.71}
+  m_LocalPosition: {x: 6.41, y: 0.6, z: 35.41}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 4391720584261602}
@@ -475,6 +476,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Paricle: {fileID: 1531683697373034}
+--- !u!114 &114957152068645840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1656819017027834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947801cefb5c47b49a63a8449a97c783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  z: 0
+  x: 0
+  y: 80
 --- !u!198 &198330555758091830
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -1,18 +1,24 @@
 fileFormatVersion: 2
-guid: 669137d7a13394847b5183b140ab98ae
-timeCreated: 1524064781
+guid: e413632f318c4dc48bb2e80354539026
+timeCreated: 1524681045
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: fullbody
-    100002: //RootNode
-    400000: fullbody
-    400002: //RootNode
-    2100000: fullbodyMat
-    2300000: fullbody
-    3300000: fullbody
-    4300000: fullbody
+    100000: //RootNode
+    100002: FullChef_bod
+    100004: hat
+    400000: //RootNode
+    400002: FullChef_bod
+    400004: hat
+    2100000: FullChef_bodMat
+    2100002: hatMat
+    2300000: FullChef_bod
+    2300002: hat
+    3300000: FullChef_bod
+    3300002: hat
+    4300000: FullChef_bod
+    4300002: hat
   externalObjects: {}
   materials:
     importMaterials: 1

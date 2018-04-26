@@ -19,8 +19,8 @@ public class PlayerMovement : MonoBehaviour {
     private Vector3 sidewayMovement;
     private Vector3 jumpingMovement;
     private Vector3 rampMovement;
-    
 
+    Animator animator;
 
 
     void Start ()
@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour {
         forwardMovement.z = forwardForce;
         rampMovement.z = forwardForce;
         rampMovement.y = rampSpeed;
+        animator = GetComponent<Animator>();
     }
 
     
@@ -56,6 +57,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             Debug.Log("in contact with ground");
             isGrounded = true;
+            animator.SetBool("Not ground", false);
         }
         
         if (collisionInfo.collider.tag == "Ramp")
@@ -69,8 +71,8 @@ public class PlayerMovement : MonoBehaviour {
         {
             movement.enabled = false;
             player.constraints = RigidbodyConstraints.None;
-            
 
+            animator.SetTrigger("Die");
         }
     }
 
@@ -93,11 +95,13 @@ public class PlayerMovement : MonoBehaviour {
         {
             player.AddForce(jumpingMovement * Time.deltaTime, ForceMode.Impulse);
             isGrounded = false;
+            animator.SetBool("Not ground",true);
         }
         //Falla snabbt
         if (isGrounded == false && Input.GetKeyDown(KeyCode.S))
         {
             player.AddForce(-jumpingMovement * Time.deltaTime, ForceMode.Impulse);
+            animator.SetTrigger("PressDown");
         }
     }
 }

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 8ff7c1fddd35518499a3e51947c781c2
-timeCreated: 1524681337
+guid: a0016cee034804c4a81835f23eb03a84
+timeCreated: 1524758094
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -69,7 +69,7 @@ ModelImporter:
     4300000: default
     4300002: FullChef_bod
     4300004: hat
-    7400000: Run
+    7400000: Running w pizza
     9500000: //RootNode
     13700000: FullChef_bod
     13700002: hat
@@ -84,7 +84,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    motionNodeName: <Root Transform>
+    motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
@@ -101,7 +101,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Run
+      name: Running w pizza
       takeName: mixamo.com
       firstFrame: 0
       lastFrame: 44

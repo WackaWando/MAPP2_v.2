@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 84b91f64c895a4247985d7a3b7cfd463
-timeCreated: 1524681337
+guid: 00890e504c7e35949938ea27bf8ef3aa
+timeCreated: 1524758093
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -69,9 +69,8 @@ ModelImporter:
     4300000: default
     4300002: FullChef_bod
     4300004: hat
-    7400000: Slide
+    7400000: Running
     9500000: //RootNode
-    11100000: //RootNode
     13700000: FullChef_bod
     13700002: hat
   externalObjects: {}
@@ -93,7 +92,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -102,10 +101,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Slide
+      name: Running
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 92
+      lastFrame: 36
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -173,7 +172,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2

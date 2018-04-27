@@ -9,7 +9,7 @@ public class Objective : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-            Paricle.SetActive(false);
+     //       Paricle.SetActive(false);
     }
 
     // Update is called once per frame

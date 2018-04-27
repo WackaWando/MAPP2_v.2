@@ -24,7 +24,7 @@ public class CameraFollow : MonoBehaviour {
 
         if (passedFinishLine == false)
         {
-            transform.position = player.position + distanceFromPlayer;
+            transform.position = new Vector3(0, (player.position[1] + distanceFromPlayer[1]), (player.position[2] + distanceFromPlayer[2]));
         }
     }
     void Update () {

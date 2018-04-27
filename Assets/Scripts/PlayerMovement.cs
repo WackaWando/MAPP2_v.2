@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour {
     private Vector3 jumpingMovement;
     private Vector3 rampMovement;
 
+
     Animator animator;
 
 
@@ -34,30 +35,36 @@ public class PlayerMovement : MonoBehaviour {
         animator = GetComponent<Animator>();
     }
 
-    
-    void FixedUpdate()
-    {
-
-        
+    public bool GetIsGrounded {
+        get {
+            return isGrounded;
+        }
     }
+
+    public void SetIsGrounded (bool sett){
+    isGrounded = sett; 
+    }
+
 
     private void OnCollisionExit(Collision collision)           //Kollar om man inte längre är i kontakt med något
     {
         if (collision.collider.tag == "Ground")
         {
-            Debug.Log("not in contact with ground");
             isGrounded = false;
         }
     }
+
 
     void OnCollisionEnter(Collision collisionInfo)               //Kollar om man är i kontakt med något
     {   
 
         if (collisionInfo.collider.tag == "Ground")
         {
-            Debug.Log("in contact with ground");
             isGrounded = true;
             animator.SetBool("Not ground", false);
+           // Vector3 vel = player.velocity;
+            //vel.y = 0;
+            //player.velocity = vel;
         }
         
         if (collisionInfo.collider.tag == "Ramp")
@@ -67,17 +74,17 @@ public class PlayerMovement : MonoBehaviour {
             
         }
 
-        if (collisionInfo.collider.tag == "Obstacle")
+      /*  if (collisionInfo.collider.tag == "Obstacle")
         {
             movement.enabled = false;
             player.constraints = RigidbodyConstraints.None;
 
             animator.SetTrigger("Die");
-        }
+        }*/
     }
 
-    void Update () {        
-       
+    void Update () {
+        //Debug.Log(isGrounded);
         player.AddForce(forwardMovement * Time.deltaTime);              //Flyttar spelaren framåt
 
         //Höger (behöver ändras till swipemovement)

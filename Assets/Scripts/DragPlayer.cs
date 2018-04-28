@@ -21,8 +21,10 @@ public class DragPlayer : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
             clickOnCharacter = true;
+            swipeControls.SetClickOnCharacter(true);
         }
     }
+
 
 
     void Update () {
@@ -54,6 +56,7 @@ public class DragPlayer : MonoBehaviour {
             vel.x = 0f;
             rbd.velocity = vel;
             clickOnCharacter = false;
+            swipeControls.SetClickOnCharacter(false);
         }
         if (swipeControls.GetSwipeUp && player.GetComponent<PlayerMovement>().GetIsGrounded)
         {

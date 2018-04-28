@@ -112,7 +112,6 @@ public class Swipe : MonoBehaviour {
     private void Reset() {
         startTouch = swipeDelta = Vector2.zero;
         isDraging = false;
-
     }
 
     public Vector2 GetSwipeDelta

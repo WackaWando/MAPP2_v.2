@@ -8,6 +8,7 @@ public class DragPlayer : MonoBehaviour {
     public Camera cam;
     private Vector3 screenPoint, offset, jumpingMovement;
     private Swipe swipeControls;
+    private bool clickOnCharacter = false;
 
 
     void Start () {
@@ -15,17 +16,23 @@ public class DragPlayer : MonoBehaviour {
         rbd = player.GetComponent<Rigidbody>();
         jumpingMovement.y = 1000;
     }
-	
- 
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            clickOnCharacter = true;
+        }
+    }
 
-	void Update () {
+
+    void Update () {
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log(rbd.velocity.z);
             screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
             offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, screenPoint.y, screenPoint.z));
         }
-        if (Input.GetMouseButton(0) && player.GetComponent<PlayerMovement>().GetIsGrounded)
+        if (Input.GetMouseButton(0) /*&& player.GetComponent<PlayerMovement>().GetIsGrounded*/ && clickOnCharacter)
         {
             Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, screenPoint.y, screenPoint.z); // hardcode the y and z for your use
 
@@ -33,6 +40,11 @@ public class DragPlayer : MonoBehaviour {
             //transform.position = curPosition;
             Vector3 vel = rbd.velocity;
             vel.x = (curPosition.x - player.transform.position.x) * 15;
+            Debug.Log(vel.x);
+            if (Mathf.Abs(vel.x) > 50)
+            {
+                vel.x = (vel.x > 0) ? 50 : -50;
+            }
             rbd.velocity = vel;
 
         }
@@ -41,6 +53,7 @@ public class DragPlayer : MonoBehaviour {
             Vector3 vel = rbd.velocity;
             vel.x = 0f;
             rbd.velocity = vel;
+            clickOnCharacter = false;
         }
         if (swipeControls.GetSwipeUp && player.GetComponent<PlayerMovement>().GetIsGrounded)
         {

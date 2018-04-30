@@ -9,12 +9,14 @@ public class DragPlayer : MonoBehaviour {
     private Vector3 screenPoint, offset, jumpingMovement;
     private Swipe swipeControls;
     private bool clickOnCharacter = false;
+    Animator animator;
 
 
     void Start () {
         swipeControls = player.GetComponent<Swipe>();
         rbd = player.GetComponent<Rigidbody>();
         jumpingMovement.y = 1000;
+        animator = GetComponent<Animator>();
     }
  /*   private void OnMouseOver()
     {
@@ -73,12 +75,17 @@ public class DragPlayer : MonoBehaviour {
             vel.x = 0;
             rbd.velocity = vel;
             swipeControls.SetSwipeUp(false);
-            
+            animator.SetBool("Not ground", true);
+            animator.SetBool("SwipeUp", true);
+
+
             //  player.transform.position = Vector3.MoveTowards(player.transform.position, desiredPosition, step);
         }
         if (swipeControls.GetSwipeDown)
         {
             rbd.AddForce(-jumpingMovement * Time.deltaTime, ForceMode.Impulse);
+          //  animator.SetBool("SwipeDown", true);
+            animator.SetTrigger("SwipeDown");
         }
 
 

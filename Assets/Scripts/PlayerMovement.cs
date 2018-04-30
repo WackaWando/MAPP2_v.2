@@ -62,16 +62,19 @@ public class PlayerMovement : MonoBehaviour {
         {
             isGrounded = true;
             animator.SetBool("Not ground", false);
-           // Vector3 vel = player.velocity;
+            // Vector3 vel = player.velocity;
             //vel.y = 0;
             //player.velocity = vel;
+            animator.SetTrigger("Grounded");
         }
         
         if (collisionInfo.collider.tag == "Ramp")
         {
             isGrounded = false;
             player.AddForce(rampMovement * Time.deltaTime, ForceMode.VelocityChange);
-            
+
+            animator.SetBool("SwipeUp", true);
+            animator.SetTrigger("SwipeUp");
         }
 
       /*  if (collisionInfo.collider.tag == "Obstacle")
@@ -108,7 +111,7 @@ public class PlayerMovement : MonoBehaviour {
         if (isGrounded == false && Input.GetKeyDown(KeyCode.S))
         {
             player.AddForce(-jumpingMovement * Time.deltaTime, ForceMode.Impulse);
-            animator.SetTrigger("PressDown");
+            animator.SetBool("SwipeDown", true);
         }
     }
 }

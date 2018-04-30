@@ -16,15 +16,20 @@ public class DragPlayer : MonoBehaviour {
         rbd = player.GetComponent<Rigidbody>();
         jumpingMovement.y = 1000;
     }
-    private void OnMouseOver()
+ /*   private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))
         {
             clickOnCharacter = true;
             swipeControls.SetClickOnCharacter(true);
         }
-    }
+    }*/
 
+    public void SetClickOnCharacter(bool sett)
+    {
+        clickOnCharacter = sett;
+        swipeControls.SetClickOnCharacter(true);
+    }
 
 
     void Update () {
@@ -66,6 +71,7 @@ public class DragPlayer : MonoBehaviour {
             Vector3 curPosition = cam.ScreenToWorldPoint(curScreenPoint);
             Vector3 vel = rbd.velocity;
             vel = (jumpDestination - curPosition) * 3;
+            vel.x = 0;
             rbd.velocity = vel;
             swipeControls.SetSwipeUp(false);
             

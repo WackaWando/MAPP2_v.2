@@ -11,7 +11,7 @@ public class HighscoreLabel : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         scoreShown = PlayerPrefs.GetInt("Highscore", 0);
-
+        text.text = "" + scoreShown;
     }
 	
 	// Update is called once per frame

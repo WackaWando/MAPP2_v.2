@@ -25,7 +25,8 @@ public class Objective : MonoBehaviour {
             Paricle.transform.position = spawn;
             Paricle.SetActive(true);
             gameObject.SetActive(false);
-            
+            PlayerPrefs.SetInt("Highscore", PlayerPrefs.GetInt("Highscore", 0) + 200);
+
         }
 
     }

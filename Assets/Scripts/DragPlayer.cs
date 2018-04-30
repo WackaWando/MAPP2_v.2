@@ -47,7 +47,6 @@ public class DragPlayer : MonoBehaviour {
             //transform.position = curPosition;
             Vector3 vel = rbd.velocity;
             vel.x = (curPosition.x - player.transform.position.x) * 15;
-            Debug.Log(vel.x);
             if (Mathf.Abs(vel.x) > 50)
             {
                 vel.x = (vel.x > 0) ? 50 : -50;

@@ -89,7 +89,7 @@ public class Swipe : MonoBehaviour {
                  swipeDelta = (Vector2)Input.mousePosition - startTouch;
              }
              */
-        text.text = "" + swipeTime;
+    //    text.text = "" + PlayerPrefs.GetInt("Highscore", 0);
         if (ratioHeight > 0.15 && !touchingScreen && swipeTime < 0.5 && swiped)
         {
  

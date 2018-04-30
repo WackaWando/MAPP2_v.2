@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour {
         sidewayMovement.x = sidewaysForce;
         jumpingMovement.y = jumpHeight;
         forwardMovement.z = forwardForce;
-        rampMovement.z = forwardForce;
+        rampMovement.z = forwardForce/15;
         rampMovement.y = rampSpeed;
         animator = GetComponent<Animator>();
     }

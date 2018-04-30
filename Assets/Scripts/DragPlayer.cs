@@ -15,7 +15,7 @@ public class DragPlayer : MonoBehaviour {
     void Start () {
         swipeControls = player.GetComponent<Swipe>();
         rbd = player.GetComponent<Rigidbody>();
-        jumpingMovement.y = 1000;
+        jumpingMovement.y = 30000;
         animator = GetComponent<Animator>();
     }
  /*   private void OnMouseOver()

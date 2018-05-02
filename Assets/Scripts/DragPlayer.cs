@@ -81,10 +81,14 @@ public class DragPlayer : MonoBehaviour {
 
             //  player.transform.position = Vector3.MoveTowards(player.transform.position, desiredPosition, step);
         }
-        if (swipeControls.GetSwipeDown)
+        if (swipeControls.GetSwipeDown && !player.GetComponent<PlayerMovement>().GetIsGrounded)
         {
             rbd.AddForce(-jumpingMovement * Time.deltaTime, ForceMode.Impulse);
-          //  animator.SetBool("SwipeDown", true);
+            //  animator.SetBool("SwipeDown", true);
+
+        }
+        else if (swipeControls.GetSwipeDown && player.GetComponent<PlayerMovement>().GetIsGrounded)
+        {
             animator.SetTrigger("SwipeDown");
         }
 

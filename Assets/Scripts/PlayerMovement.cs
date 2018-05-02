@@ -22,7 +22,9 @@ public class PlayerMovement : MonoBehaviour {
 
 
     Animator animator;
+    private bool pauseGame = false;
 
+    [SerializeField] private GameObject pausePanel;
 
     void Start ()
     {    
@@ -33,6 +35,7 @@ public class PlayerMovement : MonoBehaviour {
         rampMovement.z = forwardForce/15;
         rampMovement.y = rampSpeed;
         animator = GetComponent<Animator>();
+        pausePanel.SetActive(false);
     }
 
     public bool GetIsGrounded {
@@ -87,35 +90,43 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void Update () {
-        //Debug.Log(isGrounded);
         player.AddForce(forwardMovement * Time.deltaTime);              //Flyttar spelaren framåt
 
-        //Höger (behöver ändras till swipemovement)
-        if (Input.GetKey("d"))
-        {   
-            player.AddForce(sidewayMovement * Time.deltaTime, ForceMode.VelocityChange);
-        }
-        //Vänster
-        if (Input.GetKey("a"))
+        if (pauseGame)
         {
-            player.AddForce(-sidewayMovement * Time.deltaTime, ForceMode.VelocityChange);
-        }
-        //Hoppa
-        if (isGrounded == true && Input.GetKeyDown(KeyCode.W))
-        {
-            player.AddForce(jumpingMovement * Time.deltaTime, ForceMode.Impulse);
-            isGrounded = false;
-            animator.SetBool("Not ground",true);
-        }
-        //Falla snabbt
-        if (isGrounded == false && Input.GetKeyDown(KeyCode.S))
-        {
-            player.AddForce(-jumpingMovement * Time.deltaTime, ForceMode.Impulse);
-
-        }
-        else if (isGrounded == true && Input.GetKeyDown(KeyCode.S))
-        {
-            animator.SetBool("SwipeDown", true);
+            if (!pausePanel.activeInHierarchy)
+            {
+                Debug.Log("pause");
+                Pause();
+            }
+            else if (pausePanel.activeInHierarchy)
+            {
+                Debug.Log("continue");
+                ContinueGame();
+            }
+            pauseGame = false;
         }
     }
+
+
+
+
+    private void Pause()
+    {
+        Time.timeScale = 0;
+        pausePanel.SetActive(true);
+        //Disable scripts that still work while timescale is set to 0
+    }
+    private void ContinueGame()
+    {
+        Time.timeScale = 1;
+        pausePanel.SetActive(false);
+        //enable the scripts again
+    }
+
+    public void SetPause(bool sett)
+    {
+        pauseGame = sett;
+    }
+
 }

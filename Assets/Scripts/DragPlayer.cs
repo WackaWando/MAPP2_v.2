@@ -18,14 +18,6 @@ public class DragPlayer : MonoBehaviour {
         jumpingMovement.y = 30000;
         animator = GetComponent<Animator>();
     }
- /*   private void OnMouseOver()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            clickOnCharacter = true;
-            swipeControls.SetClickOnCharacter(true);
-        }
-    }*/
 
     public void SetClickOnCharacter(bool sett)
     {
@@ -37,7 +29,6 @@ public class DragPlayer : MonoBehaviour {
     void Update () {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log(rbd.velocity.z);
             screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
             offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, screenPoint.y, screenPoint.z));
         }

@@ -47,7 +47,6 @@ public class Swipe : MonoBehaviour {
             touchingScreen = false; 
             endTouch = Input.mousePosition;
             swipeDelta.y = endTouch.y - startTouch.y;
-            Debug.Log(swipeDelta.y);
             swiped = true;
             ratioHeight = Mathf.Abs(swipeDelta.y) / height;
            // text.text = "ended " + endTouch + " " + swipeDelta.y;

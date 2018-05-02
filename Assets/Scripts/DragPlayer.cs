@@ -10,6 +10,7 @@ public class DragPlayer : MonoBehaviour {
     private Swipe swipeControls;
     private bool clickOnCharacter = false;
     Animator animator;
+    private int waitAfterDie = 3;
 
 
 
@@ -33,7 +34,7 @@ public class DragPlayer : MonoBehaviour {
         jumpingMovement.y = 30000;
         animator = GetComponent<Animator>();
         sidewayMovement.x = sidewaysForce;
-        forwardMovement.z = forwardForce;
+        forwardMovement.z = 0;
         rampMovement.z = forwardForce / 15;
         rampMovement.y = rampSpeed;
     }
@@ -51,11 +52,11 @@ public class DragPlayer : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
             screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-            offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, screenPoint.y, screenPoint.z));
+          //  offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, screenPoint.y, screenPoint.z));
         }
         if (Input.GetMouseButton(0) /*&& player.GetComponent<PlayerMovement>().GetIsGrounded*/ && clickOnCharacter)
         {
-            Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, screenPoint.y, screenPoint.z); // hardcode the y and z for your use
+            Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, screenPoint.y, screenPoint.z); 
 
             Vector3 curPosition = cam.ScreenToWorldPoint(curScreenPoint);
             //transform.position = curPosition;
@@ -85,7 +86,7 @@ public class DragPlayer : MonoBehaviour {
         if (swipeControls.GetSwipeUp && player.GetComponent<CollisionManager>().GetIsGrounded)
         {
             player.GetComponent<CollisionManager>().SetIsGrounded(false);
-            Vector3 curScreenPoint = new Vector3(screenPoint.x, screenPoint.y, screenPoint.z); // hardcode the y and z for your use
+            Vector3 curScreenPoint = new Vector3(screenPoint.x, screenPoint.y, screenPoint.z); 
             Vector3 jumpDestination = new Vector3(player.position.x, player.position.y + 5f, player.position.z);
             Vector3 curPosition = cam.ScreenToWorldPoint(curScreenPoint);
             Vector3 vel = rbd.velocity;
@@ -116,5 +117,27 @@ public class DragPlayer : MonoBehaviour {
     public void SetTimeScale(int sett) {
         Time.timeScale = sett;
     }
+
+    public void SetForwardForce(bool sett)
+    {
+        if (sett)
+        {
+            forwardMovement.z = forwardForce;
+        }
+        else
+        {
+            forwardMovement.z = 0f;
+        }
     }
+
+    public IEnumerator Die()
+    {
+        Debug.Log("died");
+        SetForwardForce(false);
+        yield return new WaitForSeconds(waitAfterDie);
+        SetForwardForce(true);
+    }
+
+
+}
 

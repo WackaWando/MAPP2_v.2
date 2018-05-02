@@ -7,15 +7,6 @@ public class ReloadButton : MonoBehaviour {
 
     public void ReloadScene () {
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene("Test_Level");
-}
+    }
 
-// Use this for initialization
-void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

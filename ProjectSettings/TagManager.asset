@@ -11,6 +11,7 @@ TagManager:
   - rgtborder
   - FxTemporaire
   - Deathzone
+  - FinishLine
   layers:
   - Default
   - TransparentFX

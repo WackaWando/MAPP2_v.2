@@ -7,6 +7,7 @@ public class Objective : MonoBehaviour {
 
     public int scoreToGive;
     public GameObject Paricle;
+    public bool special = false;
 
     void OnTriggerEnter(Collider col)
     {
@@ -18,6 +19,10 @@ public class Objective : MonoBehaviour {
             transform.GetChild(1).gameObject.SetActive(false);
             PlayerPrefs.SetInt("Highscore", PlayerPrefs.GetInt("Highscore", 0) + scoreToGive);
             StartCoroutine(Remove());
+        }
+        if (special)
+        {
+            PlayerPrefs.SetInt("Special", PlayerPrefs.GetInt("Special", 0) + 1);
         }
 
     }

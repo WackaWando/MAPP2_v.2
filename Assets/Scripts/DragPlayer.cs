@@ -40,6 +40,7 @@ public class DragPlayer : MonoBehaviour {
         rampMovement.z = forwardForce / 15;
         rampMovement.y = rampSpeed;
         startPosition = start.GetComponent<Transform>().position;
+        PlayerPrefs.SetInt("Special", 0);
     }
 
     public void SetClickOnCharacter(bool sett)

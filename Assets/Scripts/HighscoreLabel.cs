@@ -18,7 +18,7 @@ public class HighscoreLabel : MonoBehaviour {
 	void Update () {
         if (scoreShown < PlayerPrefs.GetInt("Highscore", 0)) 
         {
-            scoreShown += 5;
+            scoreShown += 10;
             text.text = "" +scoreShown.ToString("00000000");
         }
 	}

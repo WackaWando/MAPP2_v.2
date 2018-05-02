@@ -7,12 +7,10 @@ public class PauseGame : MonoBehaviour
 
     private bool pauseGame = false;
     public Transform player;
-    private Rigidbody rbd;
 
     [SerializeField] private GameObject pausePanel;
     void Start()
     {
-        rbd = player.GetComponent<Rigidbody>();
         pausePanel.SetActive(false);
     }
     void Update()

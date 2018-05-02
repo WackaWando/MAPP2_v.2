@@ -12,11 +12,30 @@ public class DragPlayer : MonoBehaviour {
     Animator animator;
 
 
+
+
+    public float forwardForce = 2000f;               //Reglerar hur fort man springer    
+    public float sidewaysForce = 100f;               // Reglerar hur snabbt man svänger  
+    public float jumpHeight = 1000f;                   //Reglerar hur högt man hoppar
+    public float rampSpeed = 1500f;                     //Reglerar hur långt man flyger efter man åkt på en ramp
+
+
+
+
+    private bool isGrounded;
+    private Vector3 forwardMovement;
+    private Vector3 sidewayMovement;
+    private Vector3 rampMovement;
+
     void Start () {
         swipeControls = player.GetComponent<Swipe>();
         rbd = player.GetComponent<Rigidbody>();
         jumpingMovement.y = 30000;
         animator = GetComponent<Animator>();
+        sidewayMovement.x = sidewaysForce;
+        forwardMovement.z = forwardForce;
+        rampMovement.z = forwardForce / 15;
+        rampMovement.y = rampSpeed;
     }
 
     public void SetClickOnCharacter(bool sett)
@@ -27,6 +46,8 @@ public class DragPlayer : MonoBehaviour {
 
 
     void Update () {
+        rbd.AddForce(forwardMovement * Time.deltaTime);
+
         if (Input.GetMouseButtonDown(0))
         {
             screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
@@ -47,6 +68,12 @@ public class DragPlayer : MonoBehaviour {
             rbd.velocity = vel;
 
         }
+        if (!clickOnCharacter)
+        {
+            Vector3 vel = rbd.velocity;
+            vel.x = 0f;
+            rbd.velocity = vel;
+        }
         if (Input.GetMouseButtonUp(0))
         {
             Vector3 vel = rbd.velocity;
@@ -55,9 +82,9 @@ public class DragPlayer : MonoBehaviour {
             clickOnCharacter = false;
             swipeControls.SetClickOnCharacter(false);
         }
-        if (swipeControls.GetSwipeUp && player.GetComponent<PlayerMovement>().GetIsGrounded)
+        if (swipeControls.GetSwipeUp && player.GetComponent<CollisionManager>().GetIsGrounded)
         {
-            player.GetComponent<PlayerMovement>().SetIsGrounded(false);
+            player.GetComponent<CollisionManager>().SetIsGrounded(false);
             Vector3 curScreenPoint = new Vector3(screenPoint.x, screenPoint.y, screenPoint.z); // hardcode the y and z for your use
             Vector3 jumpDestination = new Vector3(player.position.x, player.position.y + 5f, player.position.z);
             Vector3 curPosition = cam.ScreenToWorldPoint(curScreenPoint);
@@ -72,19 +99,22 @@ public class DragPlayer : MonoBehaviour {
 
             //  player.transform.position = Vector3.MoveTowards(player.transform.position, desiredPosition, step);
         }
-        if (swipeControls.GetSwipeDown && !player.GetComponent<PlayerMovement>().GetIsGrounded)
+        if (swipeControls.GetSwipeDown && !player.GetComponent<CollisionManager>().GetIsGrounded)
         {
             rbd.AddForce(-jumpingMovement * Time.deltaTime, ForceMode.Impulse);
             //  animator.SetBool("SwipeDown", true);
 
         }
-        else if (swipeControls.GetSwipeDown && player.GetComponent<PlayerMovement>().GetIsGrounded)
+        else if (swipeControls.GetSwipeDown && player.GetComponent<CollisionManager>().GetIsGrounded)
         {
             animator.SetTrigger("SwipeDown");
         }
 
 
+    }
 
-        }
+    public void SetTimeScale(int sett) {
+        Time.timeScale = sett;
+    }
     }
 

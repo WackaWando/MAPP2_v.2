@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class CollisionManager : MonoBehaviour {
 
 
     
@@ -9,7 +9,6 @@ public class PlayerMovement : MonoBehaviour {
     public float sidewaysForce = 100f;               // Reglerar hur snabbt man svänger  
     public float jumpHeight = 1000f;                   //Reglerar hur högt man hoppar
     public float rampSpeed = 1500f;                     //Reglerar hur långt man flyger efter man åkt på en ramp
-    public PlayerMovement movement;
 
 
     
@@ -22,9 +21,8 @@ public class PlayerMovement : MonoBehaviour {
 
 
     Animator animator;
-    private bool pauseGame = false;
 
-    [SerializeField] private GameObject pausePanel;
+
 
     void Start ()
     {    
@@ -35,7 +33,7 @@ public class PlayerMovement : MonoBehaviour {
         rampMovement.z = forwardForce/15;
         rampMovement.y = rampSpeed;
         animator = GetComponent<Animator>();
-        pausePanel.SetActive(false);
+
     }
 
     public bool GetIsGrounded {
@@ -57,6 +55,13 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Deathzone")
+        {
+            Debug.Log("Die");
+        }
+    }
 
     void OnCollisionEnter(Collision collisionInfo)               //Kollar om man är i kontakt med något
     {   
@@ -87,46 +92,6 @@ public class PlayerMovement : MonoBehaviour {
 
             animator.SetTrigger("Die");
         }*/
-    }
-
-    void Update () {
-        player.AddForce(forwardMovement * Time.deltaTime);              //Flyttar spelaren framåt
-
-        if (pauseGame)
-        {
-            if (!pausePanel.activeInHierarchy)
-            {
-                Debug.Log("pause");
-                Pause();
-            }
-            else if (pausePanel.activeInHierarchy)
-            {
-                Debug.Log("continue");
-                ContinueGame();
-            }
-            pauseGame = false;
-        }
-    }
-
-
-
-
-    private void Pause()
-    {
-        Time.timeScale = 0;
-        pausePanel.SetActive(true);
-        //Disable scripts that still work while timescale is set to 0
-    }
-    private void ContinueGame()
-    {
-        Time.timeScale = 1;
-        pausePanel.SetActive(false);
-        //enable the scripts again
-    }
-
-    public void SetPause(bool sett)
-    {
-        pauseGame = sett;
     }
 
 }

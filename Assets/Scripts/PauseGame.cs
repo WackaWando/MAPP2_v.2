@@ -6,37 +6,45 @@ public class PauseGame : MonoBehaviour
 {
 
     private bool pauseGame = false;
+    public Transform player;
+    private Rigidbody rbd;
 
     [SerializeField] private GameObject pausePanel;
     void Start()
     {
+        rbd = player.GetComponent<Rigidbody>();
         pausePanel.SetActive(false);
     }
     void Update()
     {
+        if (Input.GetKeyDown("escape"))
+        {
+            pauseGame = true;
+        }
         if (pauseGame)
         {
             if (!pausePanel.activeInHierarchy)
             {
-                Debug.Log("pause");
                 Pause();
             }
-            if (pausePanel.activeInHierarchy)
+            else if (pausePanel.activeInHierarchy)
             {
-                Debug.Log("continue");
                 ContinueGame();
             }
+            pauseGame = false;
         }
     }
     private void Pause()
     {
-        Time.timeScale = 0;
+        player.GetComponent<DragPlayer>().SetTimeScale(0);
+       // Time.timeScale = 0;
         pausePanel.SetActive(true);
         //Disable scripts that still work while timescale is set to 0
     }
     private void ContinueGame()
     {
-        Time.timeScale = 1;
+        player.GetComponent<DragPlayer>().SetTimeScale(1);
+       // Time.timeScale = 1;
         pausePanel.SetActive(false);
         //enable the scripts again
     }

@@ -41,6 +41,7 @@ public class DragPlayer : MonoBehaviour {
         rampMovement.y = rampSpeed;
         startPosition = start.GetComponent<Transform>().position;
         PlayerPrefs.SetInt("Special", 0);
+        PlayerPrefs.SetInt("Died", 0);
     }
 
     public void SetClickOnCharacter(bool sett)
@@ -143,6 +144,7 @@ public class DragPlayer : MonoBehaviour {
         SetForwardForce(false);
         Vector3 vel = rbd.velocity;
         vel.z = 0f;
+        PlayerPrefs.SetInt("Died", 1);
         rbd.velocity = vel;
         animator.speed = 1;
         yield return new WaitForSeconds(1.5f);

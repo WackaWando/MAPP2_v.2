@@ -111,6 +111,10 @@ public class PlayerMovement : MonoBehaviour {
         if (isGrounded == false && Input.GetKeyDown(KeyCode.S))
         {
             player.AddForce(-jumpingMovement * Time.deltaTime, ForceMode.Impulse);
+
+        }
+        else if (isGrounded == true && Input.GetKeyDown(KeyCode.S))
+        {
             animator.SetBool("SwipeDown", true);
         }
     }

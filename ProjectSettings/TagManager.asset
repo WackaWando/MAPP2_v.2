@@ -9,6 +9,8 @@ TagManager:
   - Ground
   - lftborder
   - rgtborder
+  - FxTemporaire
+  - Deathzone
   layers:
   - Default
   - TransparentFX

@@ -61,6 +61,10 @@ public class CollisionManager : MonoBehaviour {
             player.AddForce(rampMovement * Time.deltaTime, ForceMode.VelocityChange);
             animator.SetTrigger("SwipeUp");
         }
+        else if (collisionInfo.collider.tag == "Obstacle")
+        {
+            StartCoroutine(player.GetComponent<DragPlayer>().Obstacle());
+        }
 
     }
 

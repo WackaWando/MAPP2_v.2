@@ -12,7 +12,7 @@ public class DragPlayer : MonoBehaviour {
     Animator animator;
     private int waitAfterDie = 3;
 
-
+   
 
 
     public float forwardForce = 2000f;               //Reglerar hur fort man springer    
@@ -143,8 +143,21 @@ public class DragPlayer : MonoBehaviour {
         Vector3 vel = rbd.velocity;
         vel.z = 0f;
         rbd.velocity = vel;
+        animator.speed = 1;
         yield return new WaitForSeconds(1.5f);
         SetForwardForce(true);
+
+    }
+
+    public IEnumerator Obstacle()
+    {
+        SetForwardForce(false);
+        Vector3 vel = rbd.velocity;
+        vel.z = 0f;
+        rbd.velocity = vel;
+        animator.speed = 0;
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(Die());
 
     }
 

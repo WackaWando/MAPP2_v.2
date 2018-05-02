@@ -42,6 +42,7 @@ public class DragPlayer : MonoBehaviour {
         startPosition = start.GetComponent<Transform>().position;
         PlayerPrefs.SetInt("Special", 0);
         PlayerPrefs.SetInt("Died", 0);
+        SetTimeScale(1);
     }
 
     public void SetClickOnCharacter(bool sett)

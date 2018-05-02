@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.39247543, g: 0.5547314, b: 0.7204249, a: 1}
+  m_IndirectSpecularColor: {r: 0.3648278, g: 0.5252918, b: 0.7229442, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -228,11 +228,11 @@ RectTransform:
   m_Father: {fileID: 1163441643}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -69.61, y: 0}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &398210182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -931,6 +931,9 @@ Prefab:
       objectReference: {fileID: 9100000, guid: 745293baba7496e4990de208632a1a0f, type: 2}
     m_RemovedComponents:
     - {fileID: 54528120814681220, guid: 9981e98dc74f0d448a21540fb8af313e, type: 2}
+    - {fileID: 114621392371171836, guid: 9981e98dc74f0d448a21540fb8af313e, type: 2}
+    - {fileID: 114210016118101480, guid: 9981e98dc74f0d448a21540fb8af313e, type: 2}
+    - {fileID: 114535960120946552, guid: 9981e98dc74f0d448a21540fb8af313e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 9981e98dc74f0d448a21540fb8af313e, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1031173151
@@ -1832,6 +1835,7 @@ GameObject:
   - component: {fileID: 1961314745}
   - component: {fileID: 1961314744}
   - component: {fileID: 1961314743}
+  - component: {fileID: 1961314747}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1871,7 +1875,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 2000
-  field of view: 117.14833
+  field of view: 115.25048
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1902,6 +1906,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -23.648, y: 3.8690002, z: -2.2910001}
+--- !u!114 &1961314747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1961314742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e607b2ce55e32409cc185922783535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalFOV: 75
 --- !u!1 &2030226616
 GameObject:
   m_ObjectHideFlags: 0
@@ -2019,7 +2035,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 72.02724, y: -41.312317}
+  m_AnchoredPosition: {x: 72.02724, y: -105.67}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2133473870

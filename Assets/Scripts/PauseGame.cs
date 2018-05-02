@@ -35,14 +35,14 @@ public class PauseGame : MonoBehaviour
     private void Pause()
     {
         player.GetComponent<DragPlayer>().SetTimeScale(0);
-       // Time.timeScale = 0;
         pausePanel.SetActive(true);
         //Disable scripts that still work while timescale is set to 0
+
     }
     private void ContinueGame()
     {
+
         player.GetComponent<DragPlayer>().SetTimeScale(1);
-       // Time.timeScale = 1;
         pausePanel.SetActive(false);
         //enable the scripts again
     }

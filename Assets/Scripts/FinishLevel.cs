@@ -22,7 +22,7 @@ public class FinishLevel : MonoBehaviour {
             {
                 stars++;
             }
-
+            starsText.gameObject.SetActive(true);
             starsText.text = "Congratulations, you got " + stars + " star" + ((stars > 1) ?"s":"") ;
             StartCoroutine(NextLevel());
         }

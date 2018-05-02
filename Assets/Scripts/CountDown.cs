@@ -8,17 +8,15 @@ public class CountDown : MonoBehaviour {
     
     public Transform player;
     public GameObject red, yellow, green;
+    public Animator anim;
     
 
     void Start () {
         player.GetComponent<DragPlayer>().SetForwardForce(false);
-
     }
 	
-	// Update is called once per frame
 	void Update () {
-        timer -= Time.deltaTime;
-       
+        timer -= Time.deltaTime;    
         if (timer<0)
         {
             
@@ -26,13 +24,14 @@ public class CountDown : MonoBehaviour {
             yellow.SetActive(false);
             green.SetActive(true);
             red.SetActive(false);
+            gameObject.SetActive(false);
         }
         else if (timer < 1.5)
         {
-           
+            anim.SetTrigger("Start");
             yellow.SetActive(true);
         }
-
-
 	}
+
+
 }

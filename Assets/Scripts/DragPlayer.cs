@@ -27,6 +27,8 @@ public class DragPlayer : MonoBehaviour {
     private Vector3 forwardMovement;
     private Vector3 sidewayMovement;
     private Vector3 rampMovement;
+    private Vector3 startPosition;
+    public GameObject start;
 
     void Start () {
         swipeControls = player.GetComponent<Swipe>();
@@ -37,6 +39,7 @@ public class DragPlayer : MonoBehaviour {
         forwardMovement.z = 0;
         rampMovement.z = forwardForce / 15;
         rampMovement.y = rampSpeed;
+        startPosition = start.GetComponent<Transform>().position;
     }
 
     public void SetClickOnCharacter(bool sett)
@@ -110,8 +113,7 @@ public class DragPlayer : MonoBehaviour {
         {
             animator.SetTrigger("SwipeDown");
         }
-
-
+    //    Debug.Log(forwardMovement.z);
     }
 
     public void SetTimeScale(int sett) {
@@ -123,19 +125,27 @@ public class DragPlayer : MonoBehaviour {
         if (sett)
         {
             forwardMovement.z = forwardForce;
+            transform.GetChild(3).gameObject.SetActive(true);
         }
         else
         {
             forwardMovement.z = 0f;
+
         }
+        Debug.Log(forwardMovement.z);
     }
 
     public IEnumerator Die()
     {
+        transform.position = startPosition;
         Debug.Log("died");
         SetForwardForce(false);
-        yield return new WaitForSeconds(waitAfterDie);
+        Vector3 vel = rbd.velocity;
+        vel.z = 0f;
+        rbd.velocity = vel;
+        yield return new WaitForSeconds(1.5f);
         SetForwardForce(true);
+
     }
 
 

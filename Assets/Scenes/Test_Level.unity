@@ -3490,7 +3490,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 223043467}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.09, y: 2.468546, z: -3.6939697}
+  m_LocalPosition: {x: -0.09, y: 6, z: -3.6939697}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -12099,6 +12099,7 @@ MonoBehaviour:
   red: {fileID: 1902214199}
   yellow: {fileID: 1483706974}
   green: {fileID: 1692168300}
+  anim: {fileID: 1748215449}
 --- !u!222 &722418079
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24802,6 +24803,7 @@ MonoBehaviour:
   sidewaysForce: 75
   jumpHeight: 700
   rampSpeed: 20
+  start: {fileID: 223043467}
 --- !u!114 &1748215447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24814,6 +24816,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1541848242}
+--- !u!95 &1748215449 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95182515602800862, guid: 9981e98dc74f0d448a21540fb8af313e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1871382832}
 --- !u!1 &1748870697
 GameObject:
   m_ObjectHideFlags: 0
@@ -27157,7 +27164,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4822166238074086, guid: 9981e98dc74f0d448a21540fb8af313e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.468546
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4822166238074086, guid: 9981e98dc74f0d448a21540fb8af313e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -27556,6 +27563,10 @@ Prefab:
       propertyPath: pausePanel
       value: 
       objectReference: {fileID: 481870849}
+    - target: {fileID: 1502761223643946, guid: 9981e98dc74f0d448a21540fb8af313e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114222383474362626, guid: 9981e98dc74f0d448a21540fb8af313e, type: 2}
     - {fileID: 114001398311180828, guid: 9981e98dc74f0d448a21540fb8af313e, type: 2}
@@ -27811,7 +27822,7 @@ Camera:
     height: 1
   near clip plane: 10.6
   far clip plane: 1000
-  field of view: 67.643684
+  field of view: 75.52849
   orthographic: 0
   orthographic size: 5
   m_Depth: -1

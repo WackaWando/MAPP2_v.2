@@ -7,14 +7,16 @@ using UnityEngine.SceneManagement;
 public class FinishLevel : MonoBehaviour {
 
     public Text starsText;
-
+    public int noOfSpecial;
     private int stars = 1;
+
+
 
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Player")
         {
-            if (PlayerPrefs.GetInt("Special", 0) == 1)
+            if (PlayerPrefs.GetInt("Special", 0) == noOfSpecial)
             {
                 stars++;
             }

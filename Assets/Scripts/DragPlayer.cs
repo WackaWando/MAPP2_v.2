@@ -8,7 +8,7 @@ public class DragPlayer : MonoBehaviour {
     public Camera cam;
     private Vector3 screenPoint, offset, jumpingMovement;
     private Swipe swipeControls;
-    private bool clickOnCharacter = false;
+    private bool clickOnCharacter = false, clickClose = false;
     Animator animator;
     private int waitAfterDie = 3;
 
@@ -20,7 +20,7 @@ public class DragPlayer : MonoBehaviour {
     public float jumpHeight = 1000f;                   //Reglerar hur högt man hoppar
     public float rampSpeed = 1500f;                     //Reglerar hur långt man flyger efter man åkt på en ramp
 
-
+    private Vector2 startTouch;
 
 
     private bool isGrounded;
@@ -43,6 +43,7 @@ public class DragPlayer : MonoBehaviour {
         PlayerPrefs.SetInt("Special", 0);
         PlayerPrefs.SetInt("Died", 0);
         SetTimeScale(1);
+        Physics.gravity = new Vector3(0, -25.0F, 0);
     }
 
     public void SetClickOnCharacter(bool sett)
@@ -50,7 +51,10 @@ public class DragPlayer : MonoBehaviour {
         clickOnCharacter = sett;
         swipeControls.SetClickOnCharacter(true);
     }
-
+    public void SetClickClose(bool sett)
+    {
+        clickClose = sett;
+    }
 
     void Update () {
         rbd.AddForce(forwardMovement * Time.deltaTime);
@@ -60,7 +64,7 @@ public class DragPlayer : MonoBehaviour {
             screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
           //  offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, screenPoint.y, screenPoint.z));
         }
-        if (Input.GetMouseButton(0) /*&& player.GetComponent<PlayerMovement>().GetIsGrounded*/ && clickOnCharacter)
+        if (Input.GetMouseButton(0) /*&& player.GetComponent<PlayerMovement>().GetIsGrounded*/ && clickOnCharacter && clickClose)
         {
             Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, screenPoint.y, screenPoint.z); 
 
@@ -68,6 +72,7 @@ public class DragPlayer : MonoBehaviour {
             //transform.position = curPosition;
             Vector3 vel = rbd.velocity;
             vel.x = (curPosition.x - player.transform.position.x) * 15;
+
             if (Mathf.Abs(vel.x) > 50)
             {
                 vel.x = (vel.x > 0) ? 50 : -50;
@@ -75,18 +80,31 @@ public class DragPlayer : MonoBehaviour {
             rbd.velocity = vel;
 
         }
-        if (!clickOnCharacter)
+        else if (Input.GetMouseButton(0) /*&& player.GetComponent<PlayerMovement>().GetIsGrounded*/ && !clickOnCharacter && clickClose)
+        {
+            Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, screenPoint.y, screenPoint.z);
+
+            Vector3 curPosition = cam.ScreenToWorldPoint(curScreenPoint);
+            //transform.position = curPosition;
+            Vector3 vel = rbd.velocity;
+            vel.x = (curPosition.x - player.transform.position.x) * 3;
+            rbd.velocity = vel;
+        }
+        else if (!clickOnCharacter || !clickClose)
         {
             Vector3 vel = rbd.velocity;
             vel.x = 0f;
             rbd.velocity = vel;
         }
+
+
         if (Input.GetMouseButtonUp(0))
         {
             Vector3 vel = rbd.velocity;
             vel.x = 0f;
             rbd.velocity = vel;
             clickOnCharacter = false;
+            clickClose = false;
             swipeControls.SetClickOnCharacter(false);
         }
         if (swipeControls.GetSwipeUp && player.GetComponent<CollisionManager>().GetIsGrounded)
@@ -96,7 +114,7 @@ public class DragPlayer : MonoBehaviour {
             Vector3 jumpDestination = new Vector3(player.position.x, player.position.y + 5f, player.position.z);
             Vector3 curPosition = cam.ScreenToWorldPoint(curScreenPoint);
             Vector3 vel = rbd.velocity;
-            vel = (jumpDestination - curPosition) * 3;
+            vel = (jumpDestination - curPosition) * 4.5f;
             vel.x = 0;
             rbd.velocity = vel;
             swipeControls.SetSwipeUp(false);
@@ -116,7 +134,8 @@ public class DragPlayer : MonoBehaviour {
         {
             animator.SetTrigger("SwipeDown");
         }
-    //    Debug.Log(forwardMovement.z);
+
+        //    Debug.Log(forwardMovement.z);
     }
 
     public void SetTimeScale(int sett) {

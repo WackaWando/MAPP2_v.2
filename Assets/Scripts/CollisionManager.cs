@@ -12,7 +12,7 @@ public class CollisionManager : MonoBehaviour {
     void Start ()
     {    
         player = GetComponent<Rigidbody>();
-        rampMovement.z = forwardForce/15;
+        rampMovement.z = forwardForce/6.6f;
         rampMovement.y = rampSpeed;
         animator = GetComponent<Animator>();
 

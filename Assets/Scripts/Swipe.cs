@@ -54,7 +54,7 @@ public class Swipe : MonoBehaviour {
             swipeTime = 0;
         }
 
-        if (ratioHeight > 0.15 && !touchingScreen && swipeTime < 0.5 && swiped)
+        if (ratioHeight > 0.1 && !touchingScreen && swipeTime < 0.5 && swiped)
         {
  
             swiped = false;

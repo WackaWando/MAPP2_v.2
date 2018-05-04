@@ -13,6 +13,7 @@ public class Mainmenu : MonoBehaviour
     {
         animatorMenu = GetComponent<Animator>();
         animatorLevels = levels.GetComponent<Animator>();
+        Time.timeScale = 1;
     }
 
     private void Update()

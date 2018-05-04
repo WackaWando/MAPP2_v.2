@@ -116,6 +116,7 @@ public class DragPlayer : MonoBehaviour {
             Vector3 vel = rbd.velocity;
             vel = (jumpDestination - curPosition) * 4.5f;
             vel.x = 0;
+            //vel.z = rbd.velocity.z * 0.3f;
             rbd.velocity = vel;
             swipeControls.SetSwipeUp(false);
             animator.SetBool("Not ground", true);

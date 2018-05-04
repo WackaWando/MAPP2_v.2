@@ -9,46 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1955739579069926}
+  m_RootGameObject: {fileID: 1363194412320954}
   m_IsPrefabParent: 1
---- !u!1 &1955739579069926
+--- !u!1 &1363194412320954
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4351098833629528}
-  - component: {fileID: 33186186126805020}
-  - component: {fileID: 23643570840314614}
-  - component: {fileID: 95452104012752800}
-  - component: {fileID: 65539874918077550}
+  - component: {fileID: 4996279803406880}
+  - component: {fileID: 33077305253161004}
+  - component: {fileID: 23453532842619668}
+  - component: {fileID: 65339211798645786}
+  - component: {fileID: 95287506100755628}
   m_Layer: 0
-  m_Name: Kavel (1)
-  m_TagString: Obstacle
+  m_Name: KnifeWithAnimation
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4351098833629528
+--- !u!4 &4996279803406880
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1955739579069926}
+  m_GameObject: {fileID: 1363194412320954}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.37, y: 0.98, z: 220.08}
-  m_LocalScale: {x: 429.44418, y: 429.444, z: 429.444}
+  m_LocalPosition: {x: 8.61, y: 3.61, z: 19.73}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23643570840314614
+--- !u!23 &23453532842619668
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1955739579069926}
+  m_GameObject: {fileID: 1363194412320954}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -57,8 +57,10 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: e833507c9b43c1f45a2d16b039d09d78, type: 3}
-  - {fileID: 2100002, guid: e833507c9b43c1f45a2d16b039d09d78, type: 3}
+  - {fileID: 2100000, guid: b126ce2ddd9c7cf44935cbe04db66901, type: 3}
+  - {fileID: 2100002, guid: b126ce2ddd9c7cf44935cbe04db66901, type: 3}
+  - {fileID: 2100004, guid: b126ce2ddd9c7cf44935cbe04db66901, type: 3}
+  - {fileID: 2100006, guid: b126ce2ddd9c7cf44935cbe04db66901, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,35 +80,35 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33186186126805020
+--- !u!33 &33077305253161004
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1955739579069926}
-  m_Mesh: {fileID: 4300000, guid: e833507c9b43c1f45a2d16b039d09d78, type: 3}
---- !u!65 &65539874918077550
+  m_GameObject: {fileID: 1363194412320954}
+  m_Mesh: {fileID: 4300000, guid: b126ce2ddd9c7cf44935cbe04db66901, type: 3}
+--- !u!65 &65339211798645786
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1955739579069926}
+  m_GameObject: {fileID: 1363194412320954}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.046891946, y: 0.005778898, z: 0.0057788966}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &95452104012752800
+  m_Size: {x: 4.7955375, y: 2.8050096, z: 0.6090957}
+  m_Center: {x: -5.060914, y: -0.63804185, z: -0.034653187}
+--- !u!95 &95287506100755628
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1955739579069926}
+  m_GameObject: {fileID: 1363194412320954}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: e833507c9b43c1f45a2d16b039d09d78, type: 3}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 44d2219c434aaa94f80a7f33df8ace4d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

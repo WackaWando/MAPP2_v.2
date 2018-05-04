@@ -8,7 +8,8 @@ public class FinishLevel : MonoBehaviour {
 
     public Text starsText;
     public int noOfSpecial;
-    private int stars = 1;
+    private int stars=1;
+    
 
 
 
@@ -24,30 +25,32 @@ public class FinishLevel : MonoBehaviour {
             {
                 stars++;
             }
+            string level = SceneManager.GetActiveScene().name;
             starsText.gameObject.SetActive(true);
             starsText.text = "Congratulations, you got " + stars + " star" + ((stars > 1) ?"s":"") ;
+            increaseStars(level, stars);
             StartCoroutine(NextLevel());
         }
         
 
     }
-     IEnumerator NextLevel()
+    private void increaseStars(string level, int stars)
     {
+        int starsGained = PlayerPrefs.GetInt(level+ "Stars",0);
+        if (stars > starsGained)
+        {
+            PlayerPrefs.SetInt((level + "Stars"), stars);
 
+        }
+        Debug.Log("" + PlayerPrefs.GetInt(level + "Stars"));
+    }
+
+    IEnumerator NextLevel()
+    {
+        
         yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(0);
 
     }
 
-
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

@@ -8,6 +8,7 @@ public class CollisionManager : MonoBehaviour {
     private Rigidbody player;
     private Vector3 rampMovement;
     Animator animator;
+	public GameObject RunngTrail;
 
     void Start ()
     {    
@@ -33,7 +34,8 @@ public class CollisionManager : MonoBehaviour {
     {
         if (collision.collider.tag == "Ground")
         {
-            isGrounded = false;
+			RunngTrail.SetActive (false);
+			isGrounded = false;
         }
     }
 
@@ -53,6 +55,7 @@ public class CollisionManager : MonoBehaviour {
             isGrounded = true;
             animator.SetBool("Not ground", false);
             animator.SetTrigger("Grounded");
+			RunngTrail.SetActive (true);
         }
         
         if (collisionInfo.collider.tag == "Ramp")

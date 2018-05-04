@@ -3,23 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Mainmenu : MonoBehaviour {
+public class Mainmenu : MonoBehaviour
+{
+    public GameObject levels;
+    private Animator animatorMenu, animatorLevels;
+    private bool levelsOn;
 
-	void Start()
-	{
-		Debug.Log("LoadSceneA");
-	}
-
-	public void LoadA(string scenename)
-	{
-		Debug.Log("sceneName to load: " + scenename);
-		SceneManager.LoadScene(scenename);
-	}
-
-
-	   public void PlayGame()
+    private void Start()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        animatorMenu = GetComponent<Animator>();
+        animatorLevels = levels.GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        if (levelsOn && Input.GetKeyDown("escape"))
+        {
+            animatorLevels.SetTrigger("closeLevels");
+            levelsOn = false;
+            StartCoroutine(NextAnimation(animatorMenu, "openMenu"));
+        }
+    }
+
+    public void PlayGame()
+    {
+        animatorMenu.SetTrigger("closeMenu");
+        levelsOn = true;
+        StartCoroutine(NextAnimation(animatorLevels, "openLevels"));
     }
 
 
@@ -29,7 +39,13 @@ public class Mainmenu : MonoBehaviour {
 
     }
 
+    public IEnumerator NextAnimation(Animator anim, string trigger)
+    {
+
+        yield return new WaitForSeconds(0.8f);
+        anim.SetTrigger(trigger);
+
+    }
 
 }
 
-    

@@ -40,6 +40,7 @@ public class FinishLevel : MonoBehaviour {
         if (stars > starsGained)
         {
             PlayerPrefs.SetInt((level + "Stars"), stars);
+            PlayerPrefs.SetInt(("totalStars"), PlayerPrefs.GetInt("totalStars") + stars - starsGained);
 
         }
         Debug.Log("" + PlayerPrefs.GetInt(level + "Stars"));

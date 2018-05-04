@@ -425,8 +425,8 @@ GameObject:
   - component: {fileID: 65619743100288924}
   - component: {fileID: 114535960120946552}
   - component: {fileID: 95182515602800862}
-  - component: {fileID: 114810741131930424}
-  - component: {fileID: 114772048487610122}
+  - component: {fileID: 114022284216619220}
+  - component: {fileID: 114106022002566166}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1141,6 +1141,36 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114022284216619220
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1858449160712956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0711738c972f3947afb0dda28b827a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 4822166238074086}
+  cam: {fileID: 0}
+  forwardForce: 60000
+  sidewaysForce: 75
+  jumpHeight: 700
+  rampSpeed: 20
+  start: {fileID: 0}
+--- !u!114 &114106022002566166
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1858449160712956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cb35fc50421c174ab60ba1012d58729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
 --- !u!114 &114322655031715788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1166,36 +1196,6 @@ MonoBehaviour:
   forwardForce: 60000
   rampSpeed: 20
   RunngTrail: {fileID: 1502761223643946}
---- !u!114 &114772048487610122
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1858449160712956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb35fc50421c174ab60ba1012d58729, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
---- !u!114 &114810741131930424
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1858449160712956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0711738c972f3947afb0dda28b827a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 4822166238074086}
-  cam: {fileID: 0}
-  forwardForce: 60000
-  sidewaysForce: 75
-  jumpHeight: 700
-  rampSpeed: 20
-  start: {fileID: 0}
 --- !u!114 &114819960493387340
 MonoBehaviour:
   m_ObjectHideFlags: 1

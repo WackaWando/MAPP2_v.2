@@ -26,6 +26,19 @@ public class Objective : MonoBehaviour {
         }
 
     }
+     void OnCollisionEnter(Collision collision)
+    {
+
+        if (collision.gameObject.tag == "Player")
+        {
+            Vector3 spawn = transform.position;
+            // Paricle.transform.position = spawn;
+            Paricle.SetActive(true);
+            transform.GetChild(1).gameObject.SetActive(false);
+            PlayerPrefs.SetInt("Highscore", PlayerPrefs.GetInt("Highscore", 0) + scoreToGive);
+          
+        }
+    }
     IEnumerator Remove()
     {
         yield return new WaitForSeconds(3);

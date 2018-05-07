@@ -36,12 +36,19 @@ public class Objective : MonoBehaviour {
             Paricle.SetActive(true);
             transform.GetChild(1).gameObject.SetActive(false);
             PlayerPrefs.SetInt("Highscore", PlayerPrefs.GetInt("Highscore", 0) + scoreToGive);
-          
+            StartCoroutine(RemoveParticle());
+
         }
     }
     IEnumerator Remove()
     {
         yield return new WaitForSeconds(3);
         gameObject.SetActive(false);
+    }
+    
+    IEnumerator RemoveParticle()
+    {
+        yield return new WaitForSeconds(2);
+        Paricle.SetActive(false);
     }
 }

@@ -32,11 +32,11 @@ public class Objective : MonoBehaviour {
         if (collision.gameObject.tag == "Player")
         {
             Vector3 spawn = transform.position;
-            // Paricle.transform.position = spawn;
+            
             Paricle.SetActive(true);
-            transform.GetChild(1).gameObject.SetActive(false);
+          
             PlayerPrefs.SetInt("Highscore", PlayerPrefs.GetInt("Highscore", 0) + scoreToGive);
-            StartCoroutine(RemoveParticle());
+			StartCoroutine(Disactive());
 
         }
     }
@@ -46,7 +46,7 @@ public class Objective : MonoBehaviour {
         gameObject.SetActive(false);
     }
     
-    IEnumerator RemoveParticle()
+    IEnumerator Disactive()
     {
         yield return new WaitForSeconds(2);
         Paricle.SetActive(false);

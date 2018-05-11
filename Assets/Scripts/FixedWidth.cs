@@ -28,4 +28,10 @@ public class FixedWidth : MonoBehaviour
         return vFOV;
     }
 
+    public void SetFOV(int fov) {
+        horizontalFOV = fov;
+    }
+
+
+
     }

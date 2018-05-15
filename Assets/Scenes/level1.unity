@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.21862376, g: 0.40081903, b: 0.61406845, a: 1}
+  m_IndirectSpecularColor: {r: 0.2524691, g: 0.43296522, b: 0.6113201, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -38593,6 +38593,7 @@ GameObject:
   - component: {fileID: 1882270127}
   - component: {fileID: 1882270131}
   - component: {fileID: 1882270132}
+  - component: {fileID: 1882270133}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -38639,12 +38640,12 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: -1
+  m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -38688,6 +38689,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalFOV: 41.3
+--- !u!114 &1882270133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1882270126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 085fe6eb4f8937045bafdc95a4981436, type: 2}
 --- !u!1 &1884154098
 GameObject:
   m_ObjectHideFlags: 0

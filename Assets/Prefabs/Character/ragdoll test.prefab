@@ -1173,7 +1173,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1767897484106998}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 25c85f7c08a15964bbbb3b7d540add3d, type: 3}
   m_Controller: {fileID: 9100000, guid: 0edc287ce35797d4f81db6bd95305828, type: 2}
   m_CullingMode: 1
@@ -1208,6 +1208,8 @@ MonoBehaviour:
   forwardForce: 60000
   rampSpeed: 20
   RunngTrail: {fileID: 1145500921342080}
+  jump: {fileID: 0}
+  land_sound: {fileID: 0}
 --- !u!114 &114451384366931932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1219,6 +1221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a6a2d34465c9640a2717f78d844179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 95085977684991446}
   ragdollActive: 0
 --- !u!114 &114655226364941800
 MonoBehaviour:

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class UnlockLevel : MonoBehaviour {
     public int starsRequired, levelNumber;
+	public Color fadeLevel;
     private Color level;
     private Image ima;
     private string sceneName;
@@ -29,7 +30,8 @@ public class UnlockLevel : MonoBehaviour {
         {
             if (Application.CanStreamedLevelBeLoaded(sceneName))
             {
-                SceneManager.LoadScene(sceneName);
+                //SceneManager.LoadScene(sceneName);
+				Initiate.Fade(sceneName, fadeLevel, 1.0f);
             }
             else
             {

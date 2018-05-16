@@ -10,7 +10,7 @@ public class Veg : MonoBehaviour {
         {
             GameObject.Destroy(transform.GetChild(2).gameObject);
         }
-        else
+        else if(PlayerPrefs.GetInt("veg", 1) == 0)
         {
             GameObject.Destroy(transform.GetChild(1).gameObject);
         }

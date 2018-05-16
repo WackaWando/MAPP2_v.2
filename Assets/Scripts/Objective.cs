@@ -8,7 +8,7 @@ public class Objective : MonoBehaviour {
     public int scoreToGive;
     public GameObject Paricle;
     public bool special = false;
-    public AudioClip tomato;
+    public AudioClip clip;
     private AudioSource source;
     public float volume =0.1f ;
 
@@ -27,7 +27,7 @@ public class Objective : MonoBehaviour {
             Paricle.SetActive(true);
             transform.GetChild(1).gameObject.SetActive(false);
             PlayerPrefs.SetInt("Highscore", PlayerPrefs.GetInt("Highscore", 0) + scoreToGive);
-            source.PlayOneShot(tomato);
+            source.PlayOneShot(clip);
 
             StartCoroutine(Remove());
         }
@@ -45,7 +45,7 @@ public class Objective : MonoBehaviour {
             Vector3 spawn = transform.position;
             
             Paricle.SetActive(true);
-          
+            source.PlayOneShot(clip);
             PlayerPrefs.SetInt("Highscore", PlayerPrefs.GetInt("Highscore", 0) + scoreToGive);
 			StartCoroutine(Disactive());
 

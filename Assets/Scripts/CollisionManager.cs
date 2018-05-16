@@ -12,10 +12,9 @@ public class CollisionManager : MonoBehaviour {
 
     private AudioSource source;
     public AudioClip jump;
-   // public AudioClip tomato;
+    public AudioClip land_sound;
 
-
-   // source.PlayOneShot(jump);
+    
     void Start ()
     {    
         player = GetComponent<Rigidbody>();
@@ -64,6 +63,7 @@ public class CollisionManager : MonoBehaviour {
             animator.SetBool("Not ground", false);
             animator.SetTrigger("Grounded");
 			RunngTrail.SetActive (true);
+            source.PlayOneShot(land_sound);
         }
         
         if (collisionInfo.collider.tag == "Ramp")

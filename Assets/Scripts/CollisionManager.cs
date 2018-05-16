@@ -10,12 +10,19 @@ public class CollisionManager : MonoBehaviour {
     Animator animator;
 	public GameObject RunngTrail;
 
+    private AudioSource source;
+    public AudioClip jump;
+   // public AudioClip tomato;
+
+
+   // source.PlayOneShot(jump);
     void Start ()
     {    
         player = GetComponent<Rigidbody>();
         rampMovement.z = forwardForce/6.6f;
         rampMovement.y = rampSpeed;
         animator = GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
 
     }
 
@@ -36,6 +43,7 @@ public class CollisionManager : MonoBehaviour {
         {
 			RunngTrail.SetActive (false);
 			isGrounded = false;
+            source.PlayOneShot(jump);
         }
     }
 

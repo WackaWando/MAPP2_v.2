@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 65917632377437682}
   - component: {fileID: 114944535811530810}
   - component: {fileID: 114424337324241450}
+  - component: {fileID: 82238560826102980}
   m_Layer: 0
   m_Name: Tomato 1
   m_TagString: Untagged
@@ -633,7 +634,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1534415814701292}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.9918003, y: 0.86182654, z: 116.75603}
+  m_LocalPosition: {x: -3.69, y: 1, z: 78.95}
   m_LocalScale: {x: 100.00006, y: 100, z: 100.00006}
   m_Children:
   - {fileID: 4565382936181160}
@@ -912,6 +913,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.02, y: 0.02, z: 0.02}
   m_Center: {x: 0, y: 0.008, z: 0}
+--- !u!82 &82238560826102980
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1534415814701292}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95526331569360776
 Animator:
   serializedVersion: 3
@@ -955,6 +1036,9 @@ MonoBehaviour:
   z: 0
   x: 0
   y: 80
+  bounce: 0
+  bounceTime: 0
+  speed: 2
 --- !u!114 &114536639579284032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -980,6 +1064,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreToGive: 200
   Paricle: {fileID: 1956679597373168}
+  special: 0
+  tomato: {fileID: 8300000, guid: 272ea8df7ba31cc4585f60770a2f471d, type: 3}
 --- !u!198 &198014060494315688
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -7711,7 +7797,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 1257085297
+  randomSeed: -2003538004
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -14322,7 +14408,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 2086624477
+  randomSeed: -550616074
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -17683,7 +17769,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -19541759
+  randomSeed: -2022698674
   InitialModule:
     serializedVersion: 3
     enabled: 1

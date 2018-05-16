@@ -8,6 +8,15 @@ public class Objective : MonoBehaviour {
     public int scoreToGive;
     public GameObject Paricle;
     public bool special = false;
+    public AudioClip tomato;
+    private AudioSource source;
+    public float volume =0.1f ;
+
+    void Start()
+    {
+        source = GetComponent<AudioSource>();
+        source.volume= volume ;
+    }
 
     void OnTriggerEnter(Collider col)
     {
@@ -18,6 +27,8 @@ public class Objective : MonoBehaviour {
             Paricle.SetActive(true);
             transform.GetChild(1).gameObject.SetActive(false);
             PlayerPrefs.SetInt("Highscore", PlayerPrefs.GetInt("Highscore", 0) + scoreToGive);
+            source.PlayOneShot(tomato);
+
             StartCoroutine(Remove());
         }
         if (special)

@@ -29951,9 +29951,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreToGive: 200
   Paricle: {fileID: 1353342163}
-  special: 0
-  clip: {fileID: 0}
-  volume: 0.1
+  special: 1
+  clip: {fileID: 8300000, guid: fed88e29e9186fa44bdf110bd0e7e642, type: 3}
+  volume: 0.2
 --- !u!65 &1377391920
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -59,11 +59,12 @@ public class CollisionManager : MonoBehaviour {
 
         if (collisionInfo.collider.tag == "Ground")
         {
+            source.PlayOneShot(land_sound);
             isGrounded = true;
             animator.SetBool("Not ground", false);
             animator.SetTrigger("Grounded");
 			RunngTrail.SetActive (true);
-            source.PlayOneShot(land_sound);
+           
         }
         
         if (collisionInfo.collider.tag == "Ramp")

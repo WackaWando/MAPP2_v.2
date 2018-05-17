@@ -697,7 +697,7 @@ MonoBehaviour:
   Paricle: {fileID: 1965835353918340}
   special: 0
   clip: {fileID: 8300000, guid: 0f4bd434a4b8beb439b4d365a42ebd83, type: 3}
-  volume: 0.1
+  volume: 0.3
 --- !u!114 &114479950142193254
 MonoBehaviour:
   m_ObjectHideFlags: 1

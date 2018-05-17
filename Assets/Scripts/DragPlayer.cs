@@ -168,6 +168,8 @@ public class DragPlayer : MonoBehaviour {
         PlayerPrefs.SetInt("Died", 1);
         rbd.velocity = vel;
         animator.speed = 1;
+        animator.enabled = true;
+        
         yield return new WaitForSeconds(1.5f);
         SetForwardForce(true);
 

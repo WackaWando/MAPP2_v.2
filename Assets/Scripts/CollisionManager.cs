@@ -13,7 +13,7 @@ public class CollisionManager : MonoBehaviour {
     private AudioSource source;
     public AudioClip jump;
     public AudioClip land_sound;
-
+	public RagDoll rag;
     
     void Start ()
     {    
@@ -76,6 +76,7 @@ public class CollisionManager : MonoBehaviour {
         else if (collisionInfo.collider.tag == "Obstacle")
         {
             StartCoroutine(player.GetComponent<DragPlayer>().Obstacle());
+			rag.RagdollActive ();
         }
 
     }

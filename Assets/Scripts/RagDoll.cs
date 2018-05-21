@@ -58,18 +58,10 @@ public class RagDoll : MonoBehaviour {
         }
     }
 
-    public void OnDeath()
+    public void RagdollActive()
     {
-        //wait 2-3 seconds.
-        foreach (CapsuleCollider col in rigColliders)
-        {
-            col.enabled = false;
-        }
-
-        foreach (Rigidbody rb in rigRigidbodies)
-        {
-            rb.isKinematic = true;
-        }
+		SetKinematic(false);
+		anim.enabled = false;
     }
 }
 

@@ -170,7 +170,7 @@ public class DragPlayer : MonoBehaviour {
         animator.speed = 1;
         animator.enabled = true;
         
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.1f);
         SetForwardForce(true);
 
     }
@@ -182,7 +182,7 @@ public class DragPlayer : MonoBehaviour {
         vel.z = 0f;
         rbd.velocity = vel;
         animator.speed = 0;
-        yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(1.5f);
         StartCoroutine(Die());
 
     }

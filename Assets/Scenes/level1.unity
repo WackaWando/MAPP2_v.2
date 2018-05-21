@@ -13672,6 +13672,10 @@ Prefab:
       propertyPath: m_Name
       value: fence2.0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1425630386673082, guid: 4a69007651b32c8499444f78b3495e47, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a69007651b32c8499444f78b3495e47, type: 2}
   m_IsPrefabParent: 0
@@ -40070,7 +40074,18 @@ Prefab:
       propertyPath: start
       value: 
       objectReference: {fileID: 223043467}
-    m_RemovedComponents: []
+    - target: {fileID: 114535960120946552, guid: 9981e98dc74f0d448a21540fb8af313e,
+        type: 2}
+      propertyPath: rag
+      value: 
+      objectReference: {fileID: 1929613555}
+    - target: {fileID: 23913393120637176, guid: 9981e98dc74f0d448a21540fb8af313e,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 23913393120637176, guid: 9981e98dc74f0d448a21540fb8af313e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 9981e98dc74f0d448a21540fb8af313e, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1872318267
@@ -41415,6 +41430,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1922194908}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1929613555 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114922262017234350, guid: 9981e98dc74f0d448a21540fb8af313e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1871382832}
+  m_Script: {fileID: 11500000, guid: 73a6a2d34465c9640a2717f78d844179, type: 3}
 --- !u!1 &1932915515
 GameObject:
   m_ObjectHideFlags: 0
@@ -45311,6 +45332,10 @@ Prefab:
     - target: {fileID: 1425630386673082, guid: 4a69007651b32c8499444f78b3495e47, type: 2}
       propertyPath: m_Name
       value: fence2.0 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1425630386673082, guid: 4a69007651b32c8499444f78b3495e47, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a69007651b32c8499444f78b3495e47, type: 2}

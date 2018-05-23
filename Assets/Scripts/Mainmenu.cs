@@ -5,14 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Mainmenu : MonoBehaviour
 {
-    public GameObject levels;
-    private Animator animatorMenu, animatorLevels;
-    private bool levelsOn;
+    public GameObject levels, mainMenu, options;
+    private Animator animatorMenu, animatorLevels, animatorOptions;
+    private bool levelsOn, optionsOn;
 
     private void Start()
     {
-        animatorMenu = GetComponent<Animator>();
+        animatorMenu = mainMenu.GetComponent<Animator>();
         animatorLevels = levels.GetComponent<Animator>();
+        animatorOptions = options.GetComponent<Animator>();
         Time.timeScale = 1;
     }
 
@@ -24,6 +25,12 @@ public class Mainmenu : MonoBehaviour
             levelsOn = false;
             StartCoroutine(NextAnimation(animatorMenu, "openMenu"));
         }
+        else if (optionsOn && Input.GetKeyDown("escape"))
+        {
+            animatorOptions.SetTrigger("closeLevels");
+            optionsOn = false;
+            StartCoroutine(NextAnimation(animatorMenu, "openMenu"));
+        }
     }
 
     public void PlayGame()
@@ -32,7 +39,12 @@ public class Mainmenu : MonoBehaviour
         levelsOn = true;
         StartCoroutine(NextAnimation(animatorLevels, "openLevels"));
     }
-
+    public void Options()
+    {
+        animatorMenu.SetTrigger("closeMenu");
+        optionsOn = true;
+        StartCoroutine(NextAnimation(animatorOptions, "openLevels"));
+    }
 
     public void QuitGame()
     {
@@ -45,6 +57,35 @@ public class Mainmenu : MonoBehaviour
 
         yield return new WaitForSeconds(0.8f);
         anim.SetTrigger(trigger);
+
+    }
+
+    public void GoBack()
+    {
+        if (levelsOn)
+        {
+            animatorLevels.SetTrigger("closeLevels");
+            levelsOn = false;
+            StartCoroutine(NextAnimation(animatorMenu, "openMenu"));
+        }
+        else if (optionsOn)
+        {
+            animatorLevels.SetTrigger("closeLevels");
+            optionsOn = false;
+            StartCoroutine(NextAnimation(animatorOptions, "openMenu"));
+        }
+
+    }
+
+    public void Veg() {
+        if (PlayerPrefs.GetInt("veg", 0) == 0)
+        {
+            PlayerPrefs.SetInt("veg", 1);
+        }
+        else if (PlayerPrefs.GetInt("veg", 0) == 1)
+        {
+            PlayerPrefs.SetInt("veg", 1);
+        }
 
     }
 

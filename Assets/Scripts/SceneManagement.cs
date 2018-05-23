@@ -9,4 +9,16 @@ public class SceneManagement : MonoBehaviour {
     {
         SceneManager.LoadScene(0);
     }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void NextLevel() {
+        if (!Application.CanStreamedLevelBeLoaded(SceneManager.GetActiveScene().buildIndex + 1))
+        {
+            ToMainMenu();
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }

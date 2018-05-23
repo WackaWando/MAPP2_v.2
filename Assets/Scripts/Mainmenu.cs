@@ -60,20 +60,17 @@ public class Mainmenu : MonoBehaviour
 
     }
 
-    public void GoBack()
-    {
-        if (levelsOn)
-        {
+    public void GoBackL()
+    {     
             animatorLevels.SetTrigger("closeLevels");
             levelsOn = false;
             StartCoroutine(NextAnimation(animatorMenu, "openMenu"));
-        }
-        else if (optionsOn)
-        {
-            animatorLevels.SetTrigger("closeLevels");
+    }
+    public void GoBackO() {
+
+            animatorOptions.SetTrigger("closeLevels");
             optionsOn = false;
-            StartCoroutine(NextAnimation(animatorOptions, "openMenu"));
-        }
+            StartCoroutine(NextAnimation(animatorMenu, "openMenu"));
 
     }
 
@@ -84,7 +81,7 @@ public class Mainmenu : MonoBehaviour
         }
         else if (PlayerPrefs.GetInt("veg", 0) == 1)
         {
-            PlayerPrefs.SetInt("veg", 1);
+            PlayerPrefs.SetInt("veg", 0);
         }
 
     }

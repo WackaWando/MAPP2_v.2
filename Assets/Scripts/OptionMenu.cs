@@ -7,7 +7,12 @@ public class OptionMenu : MonoBehaviour {
     public void ResetPrefs() {
         PlayerPrefs.SetInt("Highscore", 0);
         PlayerPrefs.SetInt("totalStars", 0);
-        PlayerPrefs.SetInt("level1Stars", 0);
+        for (int i = 1; i < 3; i++)
+        {
+            string levelName = "level" + i + "Stars";
+            PlayerPrefs.SetInt(levelName, 0);
+        }
+        PlayerPrefs.SetInt("veg", 0);
     }
 
 	// Use this for initialization

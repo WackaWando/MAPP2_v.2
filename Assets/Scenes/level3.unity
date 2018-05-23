@@ -38,12 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.21875474, g: 0.40083957, b: 0.61406446, a: 1}
+  m_IndirectSpecularColor: {r: 0.22532761, g: 0.40667078, b: 0.61358213, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -89,7 +89,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: 825440b146fb50a448302173a42a02aa,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -48976,6 +48977,8 @@ MonoBehaviour:
   scoreToGive: 200
   Paricle: {fileID: 1654605838}
   special: 0
+  clip: {fileID: 0}
+  volume: 0.1
 --- !u!65 &810559786
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -70849,6 +70852,8 @@ MonoBehaviour:
   scoreToGive: 200
   Paricle: {fileID: 734941217}
   special: 0
+  clip: {fileID: 0}
+  volume: 0.1
 --- !u!65 &1110059848
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -71583,6 +71588,8 @@ MonoBehaviour:
   scoreToGive: 200
   Paricle: {fileID: 495565461}
   special: 0
+  clip: {fileID: 0}
+  volume: 0.1
 --- !u!65 &1191460672
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -78971,6 +78978,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starsText: {fileID: 581507304}
   noOfSpecial: 1
+  scoreScreen: {fileID: 0}
+  endPanel: {fileID: 0}
 --- !u!1 &1351211097
 GameObject:
   m_ObjectHideFlags: 0
@@ -86626,6 +86635,8 @@ MonoBehaviour:
   scoreToGive: 500
   Paricle: {fileID: 1747451232}
   special: 1
+  clip: {fileID: 0}
+  volume: 0.1
 --- !u!65 &1440018282
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -106185,6 +106196,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -82.097
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b028dc9e1a7e8e041954519a255291aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b028dc9e1a7e8e041954519a255291aa, type: 3}
   m_IsPrefabParent: 0
@@ -110122,6 +110137,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1759425187}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1773442517
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4264686807228410, guid: aaa953737b46c4f42bd88020ab1e4cba, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264686807228410, guid: aaa953737b46c4f42bd88020ab1e4cba, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264686807228410, guid: aaa953737b46c4f42bd88020ab1e4cba, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 22.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264686807228410, guid: aaa953737b46c4f42bd88020ab1e4cba, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264686807228410, guid: aaa953737b46c4f42bd88020ab1e4cba, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264686807228410, guid: aaa953737b46c4f42bd88020ab1e4cba, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264686807228410, guid: aaa953737b46c4f42bd88020ab1e4cba, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264686807228410, guid: aaa953737b46c4f42bd88020ab1e4cba, type: 2}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: aaa953737b46c4f42bd88020ab1e4cba, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1805540119
 GameObject:
   m_ObjectHideFlags: 0
@@ -118233,6 +118290,8 @@ MonoBehaviour:
   scoreToGive: 200
   Paricle: {fileID: 1938488287}
   special: 0
+  clip: {fileID: 0}
+  volume: 0.1
 --- !u!65 &1895641096
 BoxCollider:
   m_ObjectHideFlags: 0

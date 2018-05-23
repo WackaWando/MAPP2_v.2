@@ -13,16 +13,19 @@ public class UnlockLevel : MonoBehaviour {
     // Use this for initialization
     void Start () {
         sceneName = "level" + levelNumber;
+
+      //  GetComponentInChildren<Text>().text = "Level " + levelNumber;
+    }
+    private void Update()
+    {
         if (PlayerPrefs.GetInt("totalStars", 0) < starsRequired || !Application.CanStreamedLevelBeLoaded(sceneName))
         {
-            ima= GetComponent<Image>();
+            ima = GetComponent<Image>();
             level = ima.color;
             level.a = 0.3f;
             ima.color = level;
         }
-      //  GetComponentInChildren<Text>().text = "Level " + levelNumber;
     }
-
     public void LevelClicked()
     {
 

@@ -2620,7 +2620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starsRequired: 0
-  levelNumber: 3
+  levelNumber: 5
   infoText: {fileID: 62170923}
   fadeLevel: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1384513404
@@ -3690,7 +3690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e791e1e6c27077a478131168616f8492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starsRequired: 0
+  starsRequired: 2
   levelNumber: 2
   infoText: {fileID: 62170923}
   fadeLevel: {r: 0, g: 0, b: 0, a: 0}

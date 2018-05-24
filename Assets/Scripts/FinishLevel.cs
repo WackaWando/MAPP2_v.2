@@ -31,11 +31,10 @@ public class FinishLevel : MonoBehaviour {
             scoreScreen.gameObject.SetActive(true);
             starAnimator = endPanel.GetComponent<Animator>();
             starAnimator.SetInteger("Stars", stars);
-            Debug.Log("special " + PlayerPrefs.GetInt("Special", 0));
             string level = SceneManager.GetActiveScene().name;
             //starsText.text = "Congratulations, you got " + stars + " star" + ((stars > 1) ?"s":"") ;
             increaseStars(level, stars);
-            StartCoroutine(NextLevel());
+            //StartCoroutine(NextLevel());
         }
         
 
@@ -49,7 +48,6 @@ public class FinishLevel : MonoBehaviour {
             PlayerPrefs.SetInt(("totalStars"), PlayerPrefs.GetInt("totalStars") + stars - starsGained);
 
         }
-        Debug.Log("" + PlayerPrefs.GetInt(level + "Stars"));
     }
 
     

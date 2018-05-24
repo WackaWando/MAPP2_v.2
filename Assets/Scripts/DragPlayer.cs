@@ -155,13 +155,12 @@ public class DragPlayer : MonoBehaviour {
             forwardMovement.z = 0f;
 
         }
-        Debug.Log(forwardMovement.z);
+
     }
 
     public IEnumerator Die()
     {
         transform.position = startPosition;
-        Debug.Log("died");
         SetForwardForce(false);
         Vector3 vel = rbd.velocity;
         vel.z = 0f;

@@ -30,7 +30,6 @@ public class Objective : MonoBehaviour {
             source.PlayOneShot(clip);
 
             StartCoroutine(Remove());
-            Debug.Log("Special " + PlayerPrefs.GetInt("Special", 0));
             if (special)
             {
                 PlayerPrefs.SetInt("Special", PlayerPrefs.GetInt("Special", 0) + 1);

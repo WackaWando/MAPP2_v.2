@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class UnlockLevel : MonoBehaviour {
     public int starsRequired, levelNumber;
+    public GameObject infoText;
 	public Color fadeLevel;
     private Color level;
     private Image ima;
@@ -13,6 +14,7 @@ public class UnlockLevel : MonoBehaviour {
     // Use this for initialization
     void Start () {
         sceneName = "level" + levelNumber;
+
 
       //  GetComponentInChildren<Text>().text = "Level " + levelNumber;
     }
@@ -38,12 +40,12 @@ public class UnlockLevel : MonoBehaviour {
             }
             else
             {
-                Debug.Log("This level is not ready yet");
+                infoText.GetComponent<InfoText>().NotReady();
             }
         }
         else
         {
-            Debug.Log("not enough stars");
+            infoText.GetComponent<InfoText>().MoreStars();
 
         }
     }

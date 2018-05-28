@@ -127,7 +127,6 @@ GameObject:
   - component: {fileID: 4539495927231244}
   - component: {fileID: 95085896886084124}
   - component: {fileID: 65425319287666748}
-  - component: {fileID: 114128843433419790}
   m_Layer: 0
   m_Name: fence2.0
   m_TagString: Obstacle
@@ -284,7 +283,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1425630386673082}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 6, y: 2.93, z: 135.3}
+  m_LocalPosition: {x: -5.37, y: 2.93, z: 100.29}
   m_LocalScale: {x: 191.04306, y: 191.04288, z: 191.04303}
   m_Children:
   - {fileID: 4160484798285380}
@@ -774,22 +773,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114128843433419790
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1425630386673082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c43b2e3ce3525a84c8af11b130d3fe54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreToGive: 0
-  Paricle: {fileID: 1031106127544688}
-  special: 0
-  clip: {fileID: 0}
-  volume: 0.1
 --- !u!114 &114443071223593686
 MonoBehaviour:
   m_ObjectHideFlags: 1

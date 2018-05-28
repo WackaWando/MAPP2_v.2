@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class CollisionManager : MonoBehaviour {
 
@@ -8,13 +9,17 @@ public class CollisionManager : MonoBehaviour {
     private Rigidbody player;
     private Vector3 rampMovement;
     Animator animator;
-	public GameObject RunngTrail;
+	public GameObject runngTrail;
+	public GameObject hitParticle;
 
     private AudioSource source;
     public AudioClip jump;
     public AudioClip land_sound;
+	public AudioClip dead_sound;
+
 	public RagDoll rag;
-    
+
+
     void Start ()
     {    
         player = GetComponent<Rigidbody>();
@@ -22,6 +27,7 @@ public class CollisionManager : MonoBehaviour {
         rampMovement.y = rampSpeed;
         animator = GetComponent<Animator>();
         source = GetComponent<AudioSource>();
+		hitParticle.SetActive (false);
 
     }
 
@@ -40,7 +46,7 @@ public class CollisionManager : MonoBehaviour {
     {
         if (collision.collider.tag == "Ground")
         {
-			RunngTrail.SetActive (false);
+			runngTrail.SetActive (false);
 			isGrounded = false;
             source.PlayOneShot(jump);
         }
@@ -63,7 +69,7 @@ public class CollisionManager : MonoBehaviour {
             isGrounded = true;
             animator.SetBool("Not ground", false);
             animator.SetTrigger("Grounded");
-			RunngTrail.SetActive (true);
+			runngTrail.SetActive (true);
            
         }
         
@@ -72,13 +78,25 @@ public class CollisionManager : MonoBehaviour {
             isGrounded = false;
             player.AddForce(rampMovement * Time.deltaTime, ForceMode.VelocityChange);
             animator.SetTrigger("SwipeUp");
+
         }
         else if (collisionInfo.collider.tag == "Obstacle")
         {
             StartCoroutine(player.GetComponent<DragPlayer>().Obstacle());
+			hitParticle.SetActive (true);
+			source.PlayOneShot(dead_sound);
 			rag.RagdollActive ();
-        }
+			StartCoroutine(delay());
+		}
 
     }
 
+
+	 IEnumerator delay()
+	{
+		yield return new WaitForSeconds(0.5f);
+		Debug.Log ("stop particle");
+		hitParticle.SetActive (false);
+
+	}
 }

@@ -1318,7 +1318,7 @@ MonoBehaviour:
   hitParticle: {fileID: 1029382888162348}
   jump: {fileID: 8300000, guid: f5c7cc073f75afd46ae7c62c5c711d7c, type: 3}
   land_sound: {fileID: 8300000, guid: 53e9d65793dcf2b418fcdc033445e589, type: 3}
-  dead_sound: {fileID: 0}
+  dead_sound: {fileID: 8300000, guid: 92855ebe55fa78648b050cf670604d4e, type: 3}
   rag: {fileID: 114922262017234350}
 --- !u!114 &114819960493387340
 MonoBehaviour:

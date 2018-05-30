@@ -9,12 +9,18 @@ public class FinishLevel : MonoBehaviour {
     public Text starsText;
     public int noOfSpecial;
     public GameObject scoreScreen, endPanel;
+    public AudioClip starSound;
 
     private Animator starAnimator;
     private int stars=1;
+    private AudioSource source;
 
-   
 
+
+    void Start()
+    {
+        source = GetComponent<AudioSource>();
+    }
 
     void OnTriggerEnter(Collider col)
     {
@@ -23,6 +29,7 @@ public class FinishLevel : MonoBehaviour {
             if (PlayerPrefs.GetInt("Special", 0) == noOfSpecial)
             {
                 stars++;
+                
             }
             if (PlayerPrefs.GetInt("Died", 0) == 0)
             {
@@ -50,7 +57,13 @@ public class FinishLevel : MonoBehaviour {
         }
     }
 
-    
+    public void StarSound()
+    {
+        Debug.Log("test");
+        source.PlayOneShot(starSound);
+    }
+
+
 
     IEnumerator NextLevel()
     {

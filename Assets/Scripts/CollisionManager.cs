@@ -95,7 +95,7 @@ public class CollisionManager : MonoBehaviour {
 	 IEnumerator delay()
 	{
 		yield return new WaitForSeconds(0.5f);
-		Debug.Log ("stop particle");
+	//	Debug.Log ("stop particle");
 		hitParticle.SetActive (false);
 
 	}

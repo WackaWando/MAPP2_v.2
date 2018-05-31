@@ -21,7 +21,7 @@ public class StarSound: MonoBehaviour
 
     public void PlaySound()
     {
-        Debug.Log("test");
+     //   Debug.Log("test");
         source.PlayOneShot(starSound);
     }
 

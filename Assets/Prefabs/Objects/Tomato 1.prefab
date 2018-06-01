@@ -124,8 +124,8 @@ GameObject:
   - component: {fileID: 4848893692881530}
   - component: {fileID: 95526331569360776}
   - component: {fileID: 65917632377437682}
-  - component: {fileID: 114944535811530810}
   - component: {fileID: 82696561579435528}
+  - component: {fileID: 114390228818883588}
   m_Layer: 0
   m_Name: Tomato 1
   m_TagString: Untagged
@@ -338,7 +338,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1534415814701292}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 21.29, z: 708.96}
+  m_LocalPosition: {x: -3.69, y: 1, z: 78.95}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 4191322495317250}
@@ -718,13 +718,29 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114390228818883588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1534415814701292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18ea6ec9cd191b4408e7f67b8f416394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreToGive: 200
+  Paricle: {fileID: 1049094049655532}
+  tomato: {fileID: 1862989200800914}
+  clip: {fileID: 8300000, guid: 272ea8df7ba31cc4585f60770a2f471d, type: 3}
+  volume: 0.1
 --- !u!114 &114527056329096834
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1049094049655532}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fd2e8874f60266498a388d7229a1bac, type: 3}
   m_Name: 
@@ -759,22 +775,6 @@ MonoBehaviour:
   bounce: 0
   bounceTime: 0
   speed: 4
---- !u!114 &114944535811530810
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1534415814701292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c43b2e3ce3525a84c8af11b130d3fe54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreToGive: 200
-  Paricle: {fileID: 1049094049655532}
-  special: 0
-  clip: {fileID: 8300000, guid: 272ea8df7ba31cc4585f60770a2f471d, type: 3}
-  volume: 0.1
 --- !u!198 &198014244345347194
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -4172,7 +4172,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -622354205
+  randomSeed: 267658856
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7449,7 +7449,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 1894156715
+  randomSeed: 1250252073
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -14042,14 +14042,14 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 1730508220
+  randomSeed: 1654528551
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.5
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
